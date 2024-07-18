@@ -69,7 +69,7 @@ AD y AC = Lados mayores
 
       ''')
 
-print('='*100)
+
 
 #_ Cantidad de cometas para produccion en masa
 CANTIDAD_DE_COMETAS = 10
@@ -77,6 +77,10 @@ CANTIDAD_DE_COMETAS = 10
 #_----------------------
 #_ ingreso de datos
 #_----------------------
+
+print('='*100)
+print('INGRESO DE DATOS'.center(100))
+print('='*100)
 
 ab = float(input('Ingrese el tamaño de la diagonal mayor AB (cm): '))
 dc = float(input('Ingrese el tamaño de la diagonal menor DC (cm): '))
@@ -121,6 +125,8 @@ total_metros_de_papel = round(total_metros_de_papel,2)
 
 
 
+print('='*100)
+print('MATERIALES NECESARIOS'.center(100))
 print('='*100)
 print(f'Total de metros (m) de varillas de plastico necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {CANTIDAD_DE_COMETAS * total_varillas_en_metros}m')     
 print(f'Total de metros (m) de papel necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {CANTIDAD_DE_COMETAS * total_metros_de_papel}m')     
