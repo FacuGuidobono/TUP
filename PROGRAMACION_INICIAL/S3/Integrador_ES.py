@@ -6,13 +6,13 @@ La juguetería El MUNDO DE CHARLY nos encarga un programa para conocer qué cant
 
 #!          B
 #!          ^
-#!        / | \
-#!      /   |   \
+#!       // | \\
+#!      //  |  \\
 #*     D---------C
-#?      \   |   /
-#?       \  |  /
-#?        \ | /
-#?         \|/
+#?     \\   |   //
+#?      \\  |  //
+#?       \\ | //
+#?        \\|//
 #?          v
 #?          A
 
