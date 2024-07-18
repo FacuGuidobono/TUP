@@ -16,20 +16,16 @@ La juguetería El MUNDO DE CHARLY nos encarga un programa para conocer qué cant
 #?          v
 #?          A
 
-
 #!Medidas:
 
 #* AB = Diágonal mayor
-
 #* DC = Diágonal menor
-
 #! BD y BC = lados menores
-
 #? AD y AC = lados mayores
 
 #! El usuario ingresará las medidas  BC, CD y DA.
 
-Detalles de construcción
+#do Detalles de construcción
 
 Debemos tener en cuenta que la estructura del cometa estará dada por un perímetro de varillas de plástico y los correspondientes entrecruces (DC y AB) del mismo material para mantener la forma del cometa.
 
