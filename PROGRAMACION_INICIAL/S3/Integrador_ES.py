@@ -46,9 +46,8 @@ print('='*100)
 
 # utilizo \\ para que no se interpreten como secuencias de escape
 #probe 100 veces para que salga alineado 
-print('''
-      
-Programa para confeccionar un cometa
+print('''  
+PROGRAMA PARA CONFECCIONAR UN COMETA
       
         B
         ^
@@ -73,7 +72,7 @@ AD y AC = Lados mayores
 print('='*100)
 
 #_ Cantidad de cometas para produccion en masa
-CANTIDAD_DE_COMETAS_A_PRODUCIR = 10
+CANTIDAD_DE_COMETAS = 10
 
 #_----------------------
 #_ ingreso de datos
@@ -102,8 +101,6 @@ entre_cruces = ab + dc
 total_varillas_en_metros = (perimetro_total_exterior + entre_cruces) * (10**-2)  #!convercion en metros
 total_varillas_en_metros = round(total_varillas_en_metros, 2) 
 
-print(f'Total de metros (m) de varillas de plastico necesarios para producir {CANTIDAD_DE_COMETAS_A_PRODUCIR} cometas: {CANTIDAD_DE_COMETAS_A_PRODUCIR * total_varillas_en_metros}')     
-
 
 #_---------------------------------
 #_ calculo del papel necesario
@@ -122,8 +119,12 @@ cola_del_cometa = 0.1 * total_sin_cola  # 10% del total del cuerpo
 total_metros_de_papel = total_sin_cola + cola_del_cometa
 total_metros_de_papel = round(total_metros_de_papel,2)
 
-print(f'Total de metros (m) de papel necesarios para producir {CANTIDAD_DE_COMETAS_A_PRODUCIR} cometas: {CANTIDAD_DE_COMETAS_A_PRODUCIR * total_metros_de_papel}')     
 
+
+print('='*100)
+print(f'Total de metros (m) de varillas de plastico necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {CANTIDAD_DE_COMETAS * total_varillas_en_metros}m')     
+print(f'Total de metros (m) de papel necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {CANTIDAD_DE_COMETAS * total_metros_de_papel}m')     
+print('='*100)
 
 
 
