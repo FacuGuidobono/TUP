@@ -51,19 +51,19 @@ importe = cantidad * COSTO_LAMPARA
 if cantidad > 5:
     descuento = 0.5
     
-if cantidad == 5:
+elif cantidad == 5:
     descuento = 0.3
     
     if marca == 'ArgentinaLuz':
         descuento = 0.4
                 
-if cantidad == 4:
+elif cantidad == 4:
     descuento = 0.2
 
     if marca == 'ArgentinaLuz' or marca == 'FelipeLamparas':
         descuento = 0.25
         
-if cantidad == 3:
+elif cantidad == 3:
     descuento = 0.05
     
     if marca == 'ArgentinaLuz':
