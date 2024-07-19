@@ -133,6 +133,9 @@ total_metros_de_papel = area_total_sin_cola + area_cola_del_cometa
 total_metros_de_papel = CANTIDAD_DE_COMETAS * round(total_metros_de_papel,2)
 
 
+#_---------------------------------
+#_ Muestra de datos
+#_---------------------------------
 
 
 print('='*100)
