@@ -1,4 +1,4 @@
-'''
+
 #_ ENUNCIADO:
 #_ 🔔Integrador !
 #_La juguetería El MUNDO DE CHARLY nos encarga un programa para conocer qué cantidad de materiales se necesita para la fabricación de distintos juguetes.
@@ -34,8 +34,8 @@
 
 #_Necesitamos saber cuántos Mts de varillas de plástico y cuántos de papel son necesarios para la construcción en masa de 10 cometas. Tener en cuenta que los valores de entrada están expresados en Cms.
 
-@FacuGuidobono
-'''
+#@FacuGuidobono
+
 
 #_ presentacion del programa
 
@@ -103,33 +103,45 @@ entre_cruces = ab + dc
 
 
 total_varillas_en_metros = (perimetro_total_exterior + entre_cruces) * (10**-2)  #!convercion en metros
-total_varillas_en_metros = round(total_varillas_en_metros, 2) 
+total_varillas_en_metros = CANTIDAD_DE_COMETAS * round(total_varillas_en_metros, 2) 
 
 
 #_---------------------------------
 #_ calculo del papel necesario
 #_---------------------------------
 
-#?Calculo en base al perimetro, pero yo calcularia en base al area del cometa
+#_ alturas triangulos
+h_triangulo_superior = ((bd_bc**2)+((dc/2))**2)**(1/2) #teorema pitagoras
+h_triangulo_inferior = ((ad_ac**2)+((dc/2))**2)**(-1/2) #teorema pitagoras
 
-#_ perimetros internos del cometa
-perimetro_superior = 2*bd_bc + dc  #triangulo superior  bc//bd//dc
-perimetro_inferior = 2*ad_ac + dc  #triangulo inferior  ad//ac//dc
 
-total_sin_cola = (perimetro_inferior + perimetro_inferior)*(10**-2) #!conversion a metros
-cola_del_cometa = 0.1 * total_sin_cola  # 10% del total del cuerpo
+
+'''
+Como calculo la mitad de un triangulo tengo que multiplicarlo x2 para tener el total
+por eso anula la div 2
+'''
+#_ areas del cometa
+area_superior =  (bd_bc/2 * h_triangulo_superior) # base*altura/2 | bc//h_triangulo_superior//(dc/2) | bc=bd
+area_inferior =  (bd_bc/2 * h_triangulo_inferior) # base*altura/2 | ac//h_triangulo_inferior//(dc/2) | ac=ad
+
+
+area_total_sin_cola = (area_inferior + area_inferior)*(10**-2) #!conversion a metros
+area_cola_del_cometa = 0.1 * area_total_sin_cola  # 10% del total del cuerpo
 
 #_ total del papel
-total_metros_de_papel = total_sin_cola + cola_del_cometa
-total_metros_de_papel = round(total_metros_de_papel,2)
+total_metros_de_papel = area_total_sin_cola + area_cola_del_cometa
+total_metros_de_papel = CANTIDAD_DE_COMETAS * round(total_metros_de_papel,2)
+
 
 
 
 print('='*100)
 print('MATERIALES NECESARIOS'.center(100))
 print('='*100)
-print(f'Total de metros (m) de varillas de plastico necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {CANTIDAD_DE_COMETAS * total_varillas_en_metros}m')     
-print(f'Total de metros (m) de papel necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {CANTIDAD_DE_COMETAS * total_metros_de_papel}m')     
+
+print(f'Total de metros (m) de varillas de plastico necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {total_varillas_en_metros} m')     
+print(f'Total de metros (m2) de papel necesarios para producir {CANTIDAD_DE_COMETAS} cometas: {total_metros_de_papel} m2')     
+
 print('='*100)
 
 
