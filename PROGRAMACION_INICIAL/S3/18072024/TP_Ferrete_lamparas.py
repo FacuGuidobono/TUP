@@ -23,7 +23,8 @@ Marca, cantidad de lámparas, total a pagar sin descuento, el descuento obtenido
 '''
 #_precio lamparas
 COSTO_LAMPARA = 800
-
+descuento = 0
+descuento_adicional = 0 # sino aplica descuento adicional  
 
 
 print('='*100)
@@ -72,8 +73,7 @@ if cantidad == 3:
         descuento =  0.1
         
 importe_final = importe - importe * descuento
-
-descuento_adicional = 0 # sino aplica descuento adicional   
+ 
 if importe_final > 4000:
     descuento_adicional = importe * 0.05  
     importe_final = importe_final - descuento_adicional

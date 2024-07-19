@@ -25,10 +25,10 @@
 #_ corresponde, el descuento adicional (si corresponde) y el total a pagar con descuento
 # @FacuGuidobono
 
-
 #_precio lamparas
 COSTO_LAMPARA = 800
-
+descuento = 0
+descuento_adicional = 0 # sino aplica descuento adicional  
 
 
 print('='*100)
@@ -77,8 +77,7 @@ if cantidad == 3:
         descuento =  0.1
         
 importe_final = importe - importe * descuento
-
-descuento_adicional = 0 # sino aplica descuento adicional   
+ 
 if importe_final > 4000:
     descuento_adicional = importe * 0.05  
     importe_final = importe_final - descuento_adicional
@@ -103,6 +102,7 @@ print(f'''|
 | * PRECION FINAL CON DESCUENTO/S: ${importe_final}                                        
 |     ''')
 print('='*100)
+
 
 
 
