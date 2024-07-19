@@ -74,6 +74,7 @@ AD y AC = Lados mayores
 #_ Cantidad de cometas para produccion en masa
 CANTIDAD_DE_COMETAS = 10
 
+
 #_----------------------
 #_ ingreso de datos
 #_----------------------
@@ -111,14 +112,13 @@ total_varillas_en_metros = CANTIDAD_DE_COMETAS * round(total_varillas_en_metros,
 #_---------------------------------
 
 #_ alturas triangulos
-h_triangulo_superior = ((bd_bc**2)+((dc/2))**2)**(1/2) #teorema pitagoras
-h_triangulo_inferior = ((ad_ac**2)+((dc/2))**2)**(-1/2) #teorema pitagoras
-
+h_triangulo_superior = ((bd_bc**2)-((dc/2))**2)**(1/2) #teorema pitagoras
+h_triangulo_inferior = ((ad_ac**2)-((dc/2))**2)**(1/2) #teorema pitagoras
 
 
 '''
 Como calculo la mitad de un triangulo tengo que multiplicarlo x2 para tener el total
-por eso anula la div 2
+por eso anula la division por 2
 '''
 #_ areas del cometa
 area_superior =  (bd_bc/2 * h_triangulo_superior) # base*altura/2 | bc//h_triangulo_superior//(dc/2) | bc=bd
