@@ -83,9 +83,7 @@ if cantidad == 3:
     if marca == 'FelipeLamparas':
         descuento = importe * 0.1
         importe_final = importe - descuento
-else:
-    descuento = 0
-    importe_final = importe 
+
 
 descuento_adicional = 0 # sino aplica descuento adicional   
 
