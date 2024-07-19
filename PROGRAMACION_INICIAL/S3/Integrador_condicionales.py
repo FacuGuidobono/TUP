@@ -53,40 +53,32 @@ print('='*100)
 importe = cantidad * COSTO_LAMPARA 
 
 if cantidad > 5:
-    descuento = importe * 0.5
-    importe_final = importe - descuento
-
+    descuento = 0.5
+    
 if cantidad == 5:
-    descuento = importe * 0.3
-    importe_final = importe - descuento
+    descuento = 0.3
     
     if marca == 'ArgentinaLuz':
-        descuento = importe * 0.4
-        importe_final = importe - descuento
-        
+        descuento = 0.4
+                
 if cantidad == 4:
-    descuento = importe * 0.2
-    importe_final = importe - descuento
-    
-    if marca == 'ArgentinaLuz' or marca == 'FelipeLamparas':
-        descuento = importe * 0.25
-        importe_final = importe - descuento
+    descuento = 0.2
 
+    if marca == 'ArgentinaLuz' or marca == 'FelipeLamparas':
+        descuento = 0.25
+        
 if cantidad == 3:
-    descuento = importe * 0.05
-    importe_final = importe - descuento
+    descuento = 0.05
     
     if marca == 'ArgentinaLuz':
-        descuento = importe * 0.15
-        importe_final = importe - descuento
-        
+        descuento =  0.15
+            
     if marca == 'FelipeLamparas':
-        descuento = importe * 0.1
-        importe_final = importe - descuento
-
+        descuento =  0.1
+        
+importe_final = importe - importe * descuento
 
 descuento_adicional = 0 # sino aplica descuento adicional   
-
 if importe_final > 4000:
     descuento_adicional = importe * 0.05  
     importe_final = importe_final - descuento_adicional
