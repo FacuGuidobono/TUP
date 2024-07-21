@@ -7,7 +7,7 @@
 
 #!          B
 #!          ^
-#!       // | \\
+#!       // | \\     
 #!      //  |  \\
 #*     D---------C
 #?     \\   |   //
@@ -73,8 +73,9 @@ AD y AC = Lados mayores
 
 #_ Cantidad de cometas para produccion en masa
 CANTIDAD_DE_COMETAS = 10
+UNIDAD = (10**-2) 
 
-
+#! El usuario ingresará las medidas  BC, CD y DA.
 #_----------------------
 #_ ingreso de datos
 #_----------------------
@@ -83,27 +84,45 @@ print('='*100)
 print('INGRESO DE DATOS'.center(100))
 print('='*100)
 
-ab = float(input('Ingrese el tamaño de la diagonal mayor AB (cm): '))
-dc = float(input('Ingrese el tamaño de la diagonal menor DC (cm): '))
 
-#todo los valores de los lados deberian ser acotados respecto a los de las diagonales para poder mantener la forma del cometa confiemos en el buen criterio del user
+# Convierto todo a metros
 
-bd_bc = float(input('Ingrese el tamaño de los lados menores BD/BC (cm): '))
-ad_ac = float(input('Ingrese el tamaño de los lados mayores AD/AC (cm): '))
+dc= float(input('Ingrese el tamaño de la diagonal menor CD (cm): ')) * UNIDAD
 
+while True:
+  bc_bd = float(input('Ingrese el tamaño del lado menor BC (cm): ')) * UNIDAD
+
+  if bc_bd > dc/2:
+      break
+  else:
+    print('El tamaño de BC debe ser mayor que CD. Inténtelo de nuevo.')
+
+while True:
+      da_ca = float(input('Ingrese el tamaño de los lado mayor DA (cm): ')) * UNIDAD
+      if da_ca > bc_bd:
+        break
+      else:
+        print('El tamaño de DA debe ser mayor que BC. Inténtelo de nuevo.')
 
 #_----------------------------------
 #_ calculo total varillas 
 #_----------------------------------
 
+#por pitagoras
+h_triangulo_superior = [ (bc_bd**2) -((dc/2)**2)]**(1/2) #altura que resulta de dividir el cometa por dc
+h_triangulo_inferior = [ (da_ca**2) -((dc/2)**2)]**(1/2)   #altura que resulta de dividir el cometa por dc
+
+#_diagonal mayor
+ab = h_triangulo_superior + h_triangulo_inferior
+
 #_perimetro externo del cometa
-perimetro_total_exterior = 2 * (bd_bc + ad_ac)
+perimetro_total_exterior = 2 * (bc_bd + da_ca)
 
 #_entre cruces
 entre_cruces = ab + dc
 
 
-total_varillas_en_metros = (perimetro_total_exterior + entre_cruces) * (10**-2)  #!convercion en metros
+total_varillas_en_metros = (perimetro_total_exterior + entre_cruces)  
 total_varillas_en_metros = CANTIDAD_DE_COMETAS * round(total_varillas_en_metros, 2) 
 
 
@@ -111,21 +130,17 @@ total_varillas_en_metros = CANTIDAD_DE_COMETAS * round(total_varillas_en_metros,
 #_ calculo del papel necesario
 #_---------------------------------
 
-#_ alturas triangulos
-h_triangulo_superior = ((bd_bc**2)-((dc/2))**2)**(1/2) #teorema pitagoras
-h_triangulo_inferior = ((ad_ac**2)-((dc/2))**2)**(1/2) #teorema pitagoras
-
 
 '''
-Como calculo la mitad de un triangulo tengo que multiplicarlo x2 para tener el total
+Como calculo la mitad del triangulo tengo que multiplicarlo x2 para tener el total
 por eso anula la division por 2
 '''
 #_ areas del cometa
-area_superior =  (bd_bc/2 * h_triangulo_superior) # base*altura/2 | bc//h_triangulo_superior//(dc/2) | bc=bd
-area_inferior =  (bd_bc/2 * h_triangulo_inferior) # base*altura/2 | ac//h_triangulo_inferior//(dc/2) | ac=ad
+area_superior =  (bc_bd/2 * h_triangulo_superior) # base*altura/2 | bc//h_triangulo_superior//(dc/2) | bc=bd
+area_inferior =  (bc_bd/2 * h_triangulo_inferior) # base*altura/2 | ac//h_triangulo_inferior//(dc/2) | ac=ad
 
 
-area_total_sin_cola = (area_inferior + area_inferior)*(10**-2) #!conversion a metros
+area_total_sin_cola = (area_inferior + area_inferior)
 area_cola_del_cometa = 0.1 * area_total_sin_cola  # 10% del total del cuerpo
 
 #_ total del papel
