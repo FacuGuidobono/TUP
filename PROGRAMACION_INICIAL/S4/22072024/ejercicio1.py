@@ -19,7 +19,7 @@ while rep < 11:
     print (f'N° rep: {rep}') #?Muestro el N° de rep
     print('='*50)
    
-    while num < 11:  #! N° asc [0,9]
+    while num < 11: 
         print(num) #?muestro los N°
         num += 1 #_aumento el N° en 1
     rep += 1 #_aumento la rep en 1
