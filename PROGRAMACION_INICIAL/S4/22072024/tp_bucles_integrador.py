@@ -38,27 +38,27 @@ while True:
     #_ validamos el ingreso
     if num == CERO or num < MIN or num > MAX:   
         print("ERROR: El numero ingresado no esta permitido.")
+    else:  
+        #_discriminamos numeros neg  
+        if num < 0: #_ numeros negativos
+            sum_neg += num
+            cant_neg += 1
+            
+        #_discriminamos numeros pos       
+        elif num > 0: #_ numeros positivos
+            sum_pos += num
+            cant_pos += 1
+            
+            if num >= max_pos: #_ buscamos  N positivo mayor
+                max_pos = num
+            
+            
         
-    #_discriminamos numeros neg  
-    elif num < 0: #_ numeros negativos
-        sum_neg += num
-        cant_neg += 1
+        #_confirmacion continuar carga
+        op = input("¿Desea ingresar otro numero? (s/n): ") 
         
-    #_discriminamos numeros pos       
-    elif num > 0: #_ numeros positivos
-        sum_pos += num
-        cant_pos += 1
-        
-        if num >= max_pos: #_ buscamos  N positivo mayor
-            max_pos = num
-        
-        
-    
-    #_confirmacion continuar carga
-    op = input("¿Desea ingresar otro numero? (s/n): ") 
-    
-    if op.lower() == 'n': #solo evaluo la condicion de salida 
-        break  #rompe el bulce 
+        if op.lower() == 'n': #solo evaluo la condicion de salida 
+            break  #rompe el bulce 
 
 
 #_El promedio de los números positivos.
