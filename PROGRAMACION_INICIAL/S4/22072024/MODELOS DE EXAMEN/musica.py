@@ -1,5 +1,4 @@
 '''
-
 Para una escuela de música se necesita un programa que permita ingresar los datos de los estudiantes, hasta que el cliente quiera. Por cada estudiante, 
 se ingresa:
 A- Nombre completo
@@ -16,13 +15,11 @@ Se pide informar por print:
 3- Cantidad de estudiantes que tocan piano y tienen más de 12 años. 
 4- La actividad que posee menos estudiantes.
 5- Nombre completo e instrumento del estudiante más joven.
-
-
 '''
 
 
 
-
+#!Inicializacion de variables
 
 op = True
 
@@ -36,11 +33,11 @@ cont_bateria = 0
 cont_guitarra = 0
 cont_piano = 0  
 
+cant_hs_bateria = 0
 cont_piano_doce_anios = 0
-
 edad_mas_joven = None
-
 mas_hs_estudio = None
+alumno_bateria = "No hay ningun alumno que toque la bateria"
 
 
 
@@ -69,44 +66,38 @@ while op == True:
     horas = int(input('Ingrese las horas de estudio por semana (mas de 0 y menos de 57):')) 
     while horas > 57 or horas < 0:
         horas = int(input('Error: Ingrese nuevamente las horas de estudio por semana (mas de 0 y menos de 57):'))
-      
-      
-      
+
     
     #_ E Validacion precio por clase
     precio = float(input('Ingrese el precio por clase (desde 200 hasta 500):'))
     while precio > 500 or precio < 200:
         precio = float(input('Error: Ingrese nuevamente el precio por clase (desde 200 hasta 500):'))
     
+    
+    
     #_ Alumnos mas joven
+    
     if edad_mas_joven == None or edad < edad_mas_joven:
         edad_mas_joven = edad
         nombre_mas_joven = nombre
         instrumento_mas_joven = instrumento
-        
     
+        
     if instrumento == 'bateria':
         recaudado_bateria += precio
         cont_bateria += 1
-        if horas > cant_hs_bateria:
+        if cant_hs_bateria == None or horas > cant_hs_bateria:
             cant_hs_bateria += horas
-            alumno_bateria = nombre
-            
+            alumno_bateria = nombre      
     else:
         if instrumento == 'guitarra':
             cont_guitarra += 1
             recaudado_guitarra += precio
-        
-        else:
-            
+        else: #_piano
             cont_piano += 1
             recaudado_piano += precio
-        
             if edad > 12:
                 cont_piano_doce_anios += 1
-    
-    
-    
     
     #_ingreso de datos hasta que el cliente quiera
     op2 = input('Desea continuar ingresando estudiantes (s/n) ?: ')
@@ -121,17 +112,14 @@ if cont_guitarra < cont_bateria and cont_guitarra < cont_piano:
         actividad_menos_estudiantes =  'Guitarra'
         cont_menos_estudiantes = cont_guitarra
 else:
-    if cont_piano < cont_bateria and cont_piano < cont_guitarra:
-        actividad_menos_estudiantes = 'Piano'
-        cont_menos_estudiantes = cont_piano
-    else:
+    if cont_bateria < cont_piano:
         actividad_menos_estudiantes = 'Batería'
         cont_menos_estudiantes = cont_bateria
-        
-    
-    
-    
-#__________________  
+    else:
+        actividad_menos_estudiantes = 'Piano'
+        cont_menos_estudiantes = cont_piano
+
+#________________________________________________________________  
 
 cantidad_total = cont_piano + cont_guitarra + cont_bateria
 
@@ -140,10 +128,7 @@ promedio_guitarra = recaudado_guitarra / cantidad_total
 promedio_piano = recaudado_piano / cantidad_total
 promedio_bateria = recaudado_bateria / cantidad_total
 
-
-
-
-#-----------------------------------------------------------------------------------------
+#________________________________________________________________ 
 
 
 #_MUESTA DE DATOS   
@@ -161,6 +146,6 @@ print(f'''
 
 4- La actividad que posee menos estudiantes es: {actividad_menos_estudiantes} con {cont_menos_estudiantes} estudiantes.
 
-5- Nombre completo e instrumento del estudiante más joven: {nombre_mas_joven}, {edad_mas_joven} años y su instrumento es {instrumento_mas_joven}.
+5- Nombre completo e instrumento del estudiante más joven: {nombre_mas_joven} de {edad_mas_joven} años y su instrumento es {instrumento_mas_joven}.
 
 ''')
