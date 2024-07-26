@@ -1,5 +1,6 @@
 '''
-
+Nombre: Facundo
+Apellido: Guidobono
 Para una tienda de deportes se necesita un programa que permita ingresar los datos de los jugadores de fútbol que han comprado una camiseta, 
 hasta que el cliente quiera. 
 Por cada jugador, se ingresa:
@@ -19,7 +20,7 @@ Se pide informar por print
 
 
 '''
-
+#_ Inicilazacion de variables
 
 op = True
 
@@ -74,9 +75,8 @@ while op:
     while edad > 40 or edad < 18:
         edad = int(input(f'Error: Ingrese nuevamente la edad de {nombre_jugador} (entre 18 y 40):'))
     
+    #suma de edades
     suma_edades += edad
-    
-    
     
     precio_camiseta = float(input('ingrese el precio de la camiseta: '))
     
@@ -118,16 +118,13 @@ porcenteje_bayern = (cont_bayern * 100) / cantidad_total
 print('='*50)
 print(f'''
 
-* Porcentaje de camisetas vendidas por equipo:
-    Barcelona: {porcentaje_barsa:2f}%
-    Real Madrid: {porcentaje_madrid:2f}%
-    Bayern Munich: {porcenteje_bayern:2f}%
+1- Porcentaje de camisetas vendidas por equipo: [Barcelona: {porcentaje_barsa}%, Real Madrid: {porcentaje_madrid}%, Bayern Munich: {porcenteje_bayern}%]
 
-* importe total recaudado: ${importe_total}
+2- importe total recaudado: ${importe_total}
 
-* Promedio de edad de los jugadores que compraron camisetas: {promedio_edad:2f}
+3- Promedio de edad de los jugadores que compraron camisetas: {promedio_edad}
 
-* Jugador mas longevo: {nombre_mas_longevo}, {equipo_mas_longevo}, {posicion_mas_longevo}
+4- Jugador mas longevo: {nombre_mas_longevo}, {equipo_mas_longevo}, {posicion_mas_longevo}
 
 ''')
 print('='*50)
