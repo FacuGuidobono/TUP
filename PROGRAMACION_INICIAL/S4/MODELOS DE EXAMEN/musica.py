@@ -33,8 +33,8 @@ cont_bateria = 0
 cont_guitarra = 0
 cont_piano = 0    
 
-cant_hs_bateria = 0
-cont_piano_doce_anios = 0
+cant_hs_bateria = None
+cont_piano_mas_doce_anios = 0
 edad_mas_joven = None
 mas_hs_estudio = None
 alumno_bateria = "No hay ningun alumno que toque la bateria"
@@ -84,10 +84,11 @@ while op == True:
     
         
     if instrumento == 'bateria':
-        recaudado_bateria += precio
         cont_bateria += 1
+        recaudado_bateria += precio
+        
         if cant_hs_bateria == None or horas > cant_hs_bateria:
-            cant_hs_bateria += horas
+            cant_hs_bateria = horas
             alumno_bateria = nombre      
     else:
         if instrumento == 'guitarra':
@@ -97,7 +98,7 @@ while op == True:
             cont_piano += 1
             recaudado_piano += precio
             if edad > 12:
-                cont_piano_doce_anios += 1
+                cont_piano_mas_doce_anios += 1
     
     #_ingreso de datos hasta que el cliente quiera
     op2 = input('Desea continuar ingresando estudiantes (s/n) ?: ')
@@ -121,13 +122,22 @@ else:
 
 #________________________________________________________________  
 
-cantidad_total = cont_piano + cont_guitarra + cont_bateria
+#cantidad_total = cont_piano + cont_guitarra + cont_bateria
 
-
-promedio_guitarra = recaudado_guitarra / cantidad_total
-promedio_piano = recaudado_piano / cantidad_total
-promedio_bateria = recaudado_bateria / cantidad_total
-
+if cont_guitarra > 0:
+    promedio_guitarra = recaudado_guitarra / cont_guitarra
+else:
+    promedio_guitarra = 0
+    
+if cont_piano > 0:
+    promedio_piano = recaudado_piano / cont_piano
+else:
+    promedio_piano = 0
+    
+if cont_bateria > 0 :
+    promedio_bateria = recaudado_bateria / cont_bateria
+else:
+    promedio_bateria = 0
 #________________________________________________________________ 
 
 
@@ -142,7 +152,7 @@ print(f'''
     * Piano: ${promedio_piano}
     * Batería: ${promedio_bateria}
     
-3- La cantidad de estudiantes de piano que son mayores de 12 años: {cont_piano_doce_anios}
+3- La cantidad de estudiantes de piano que son mayores de 12 años: {cont_piano_mas_doce_anios}
 
 4- La actividad que posee menos estudiantes es: {actividad_menos_estudiantes} con {cont_menos_estudiantes} estudiantes.
 
