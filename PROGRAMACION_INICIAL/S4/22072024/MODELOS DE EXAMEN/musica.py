@@ -31,7 +31,7 @@ recaudado_piano = 0
 
 cont_bateria = 0
 cont_guitarra = 0
-cont_piano = 0  
+cont_piano = 0    
 
 cant_hs_bateria = 0
 cont_piano_doce_anios = 0
