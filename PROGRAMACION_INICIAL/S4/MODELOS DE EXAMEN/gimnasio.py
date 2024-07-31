@@ -70,19 +70,21 @@ while socios < 50:
     
     #_VARIACIONES DE TARIFA
     if rutina == 'Cardio':
-        tarifa = tarifa * descuento 
-        
+        tarifa = tarifa * descuento  
     else:
         
         if rutina == 'Musculacion':
+            
             tarifa = tarifa * descuento 
             tarifa_musculacion += tarifa
+            
             if edad >35 and edad < 41:
                 cant_musculacion += 1
                 tarifa_musculacion += tarifa
         else:
             tarifa = tarifa *1.15
             tarifa_funcional += tarifa
+            
             if peso_funcional == None or peso_funcional < peso:
                 peso_funcional = peso
         
@@ -99,7 +101,6 @@ diff_total = total_sin_descuento - total_con_descuento
 
 print(f'''
 
-
 *	La actividad que mayor recaudo sin considerar el incremento o el descuento: {TARIFA_BASE}
 
 
@@ -110,9 +111,5 @@ print(f'''
 
 
 *   La diferencia entre el total recaudado sin descuento/incremento y el total recaudado con descuento/incremento: {diff_total}
-
-
-
-
 
 ''')
